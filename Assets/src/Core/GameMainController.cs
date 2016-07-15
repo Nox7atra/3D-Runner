@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-namespace Runner.Core.GameControllers
+namespace Runner.Core
 {
     public class GameMainController
     {

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.IO;
 using YamlDotNet.RepresentationModel;
 namespace Runner.Core
@@ -24,24 +25,33 @@ namespace Runner.Core
         }
         #endregion
         #region private properties
-        private int _LinesNum;
         private int _MaxSameSegmentsInARow;
+        private int _StartSegmentWidth;
+        private int _StartSegmentLength;
         private float _StartSpeed;
         private float _MaxSpeed;
+        private float _Acceleration;
         #endregion
         #region public properties
-        public int LinesNum
-        {
-            get
-            {
-                return _LinesNum;
-            }
-        }
         public int MaxSameSegmentsInARow
         {
             get
             {
                 return _MaxSameSegmentsInARow;
+            }
+        }
+        public int StartSegmentWidth
+        {
+            get
+            {
+                return _StartSegmentWidth;
+            }
+        }
+        public int StartSegmentLength
+        {
+            get
+            {
+                return _StartSegmentLength;
             }
         }
         public float StartSpeed
@@ -58,6 +68,13 @@ namespace Runner.Core
                 return _MaxSpeed;
             }
         }
+        public float Acceleration
+        {
+            get
+            {
+                return _Acceleration;
+            }
+        }
         #endregion
         public void Init()
         {
@@ -65,12 +82,41 @@ namespace Runner.Core
         }
         private void ParseBalance()
         {
-            TextAsset textAsset = (TextAsset)Resources.Load(PathConstants.BALANCE_PATH, typeof(TextAsset));
+            TextAsset textAsset = (TextAsset)Resources.Load(
+                PathConstants.BALANCE_PATH, typeof(TextAsset));
             StringReader reader = new StringReader(textAsset.text);
             var yaml = new YamlStream();
             yaml.Load(reader);
             YamlMappingNode doc = (YamlMappingNode)yaml.Documents[0].RootNode;
-            YamlMappingNode root = (YamlMappingNode)doc.Children[new YamlScalarNode("Balance")];
+            YamlMappingNode root = (YamlMappingNode)doc.
+                Children[new YamlScalarNode("Balance")];
+            foreach(var param in root.Children)
+            {
+                switch (param.Key.ToString())
+                {
+                    case "StartSegmentWidth":
+                        _StartSegmentWidth 
+                            = Convert.ToInt32(param.Value.ToString());
+                        break;
+                    case "StartSegmentLength":
+                        _StartSegmentLength
+                            = Convert.ToInt32(param.Value.ToString());
+                        break;
+                    case "MaxSegmentsInARow":
+                        _MaxSameSegmentsInARow 
+                            = Convert.ToInt32(param.Value.ToString());
+                        break;
+                    case "StartSpeed":
+                        _StartSpeed = float.Parse(param.Value.ToString());
+                        break;
+                    case "MaxSpeed":
+                        _MaxSpeed = float.Parse(param.Value.ToString());
+                        break;
+                    case "Acceleration":
+                        _Acceleration = float.Parse(param.Value.ToString());
+                        break;
+                }
+            }
         }
     }
 }

@@ -1,0 +1,7 @@
+Balance:
+  StartSegmentWidth: 4
+  StartSegmentLength: 100
+  MaxSegmentsInARow: 3
+  StartSpeed: 0.1
+  MaxSpeed: 0.7
+  Acceleration: 0.05

@@ -1,6 +1,17 @@
 Segments:
   Segment1:
-    Length:
+    Length: 6
+    Lines:
+      Line1:
+        Obstacles:
+          Obstacle1:
+            Type:
+            Position:
+      Line2:
+      Line3:
+      Line4:
+Segment2:
+    Length: 6
     Lines:
       Line1:
         Obstacles:

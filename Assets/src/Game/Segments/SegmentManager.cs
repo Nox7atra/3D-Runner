@@ -26,6 +26,14 @@ namespace Runner.Game.Segments
         }
         #endregion
         List<Segment> _Segments;
+
+        public List<Segment> Segments
+        {
+            get
+            {
+                return _Segments;
+            }
+        }
         public void Init()
         {
             _Segments = new List<Segment>();
@@ -63,7 +71,14 @@ namespace Runner.Game.Segments
         {
             foreach(var lineData in lines.Children)
             {
-
+                Line line = new Line();
+                switch (lineData.Key.ToString())
+                {
+                    case "Obstacles":
+                        ParseObstacles((YamlMappingNode)lineData.Key, ref line);
+                        break;
+                }
+                segment.Lines.Add(line);
             }
         }
         private void ParseObstacles(YamlMappingNode obstacles, ref Line line)

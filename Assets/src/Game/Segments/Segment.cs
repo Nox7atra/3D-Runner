@@ -9,21 +9,16 @@ namespace Runner.Game.Segments
 
         public int Length;
 
+        public List<Line> Lines
+        {
+            get
+            {
+                return _Lines;
+            }
+        }
         public Segment()
         {
-            _Lines = new List<Line>(BalanceManager.Instance.LinesNum);
-        }
-        public Line GetLine(int lineNum)
-        {
-            if (lineNum < _Lines.Count)
-            {
-                return _Lines[lineNum];
-            }
-            else
-            {
-                Debug.Log("Can't Get this line:" + lineNum.ToString());
-                return null;
-            }
+            _Lines = new List<Line>();
         }
 
     }
