@@ -43,8 +43,8 @@ namespace Runner.Game.Segments
         {
 
         }
-        protected static void CreateCell(
-            SegmentGameObject segmentObj, 
+        protected static GameObject CreateCell(
+            SegmentGameObject segmentObj,
             Vector3 localPosition)
         {
             GameObject cell = ObjectsBuilder.
@@ -53,6 +53,16 @@ namespace Runner.Game.Segments
             cell.transform.SetParent(segmentObj.transform.transform);
             cell.transform.localPosition
                 = localPosition;
+            return cell;
+        }
+        protected static GameObject CreateCell(
+            SegmentGameObject segmentObj,
+            Vector3 localPosition, Vector3 scale)
+        {
+            GameObject cell = CreateCell(segmentObj, localPosition);
+            cell.transform.localScale 
+                = scale;
+            return cell;
         }
         protected static void CreateObstacle(
             SegmentGameObject segmentObj, 
@@ -66,20 +76,20 @@ namespace Runner.Game.Segments
             int width, 
             int length)
         {
-            for (int i = 0; i < length; i++)
-            {
-                for (int j = 0; j < width; j++)
-                {
-                    CreateCell(segmentObj, 
-                        Vector3.right * i + Vector3.forward * j);
-                }
-            }
+            CreateCell(segmentObj, 
+                Vector3.right * length / 2
+                + Vector3.down * 0.01f
+                + Vector3.forward * width /2,
+                Vector3.right * length
+                + Vector3.up
+                + Vector3.forward * (width + 1));
         }
         private static void CreateFloor(
             SegmentGameObject segmentObj, 
             List<Line> lines, 
             int length)
         {
+            CreateFloor(segmentObj, lines.Count, length);
             for(int j = 0; j < lines.Count; j++)
             {
                 for(int i = 0; i < length; i++)
@@ -94,12 +104,6 @@ namespace Runner.Game.Segments
                             Vector3.right * i + Vector3.forward * j, 
                             obstacle);
                     }
-                    else
-                    {
-                        CreateCell(
-                            segmentObj,
-                            Vector3.right * i + Vector3.forward * j);
-                    }
                 }
             }
         }
@@ -108,29 +112,23 @@ namespace Runner.Game.Segments
             int width, 
             int length)
         {
-            for (int i = 0; i < length; i++)
-            {
-                for (int j = 0; j < WALL_HEIGHT; j++)
-                {
-                    //Рандом, чтобы стены не были идеально гладкими и отличались
-                    if (Random.Range(0, 6) < 4)
-                    {
-                        //Create left wall cell
-                        CreateCell(segmentObj,
-                            Vector3.right * i
-                            + Vector3.up * j
-                            - Vector3.forward);
-                    }
-                    if (Random.Range(0, 6) < 4)
-                    {
-                        //Create right wall cell
-                        CreateCell(segmentObj,
-                        Vector3.right * i
-                        + Vector3.up * j
-                        + Vector3.forward * width);
-                    }
-                }
-            }
+            //Create left wall cell
+            CreateCell(segmentObj,
+                Vector3.right * length / 2
+                + Vector3.up * WALL_HEIGHT/2
+                - Vector3.forward, 
+                Vector3.right * length
+                + Vector3.up * WALL_HEIGHT
+                + Vector3.forward);
+
+            //Create right wall cell
+            CreateCell(segmentObj,
+            Vector3.right * length / 2
+            + Vector3.up * WALL_HEIGHT / 2
+            + Vector3.forward * width,
+            Vector3.right * length
+            + Vector3.up * WALL_HEIGHT
+            + Vector3.forward);
         }
         public static SegmentGameObject Create(Segment segment)
         {

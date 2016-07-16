@@ -5,7 +5,18 @@ namespace Runner.Game.Segments.Obstacles
 {
     public class FloorLineObstacle : TriggerableLineObstacle
     {
-        public float Speed;
+        private float _Speed;
+        public float Speed
+        {
+            get
+            {
+                return _Speed;
+            }
+            set
+            {
+                _Speed = value;
+            }
+        }
         public override ObstacleObject Create(Transform parentTransform,
             Vector3 localPosition)
         {
@@ -19,6 +30,7 @@ namespace Runner.Game.Segments.Obstacles
 
             FloorLineObstacleObject floorObj
                 = obj.GetComponent<FloorLineObstacleObject>();
+            floorObj.SetPropeties(_Speed, _TriggerRange);
             return floorObj;
         }
     }

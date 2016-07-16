@@ -6,7 +6,7 @@ namespace Runner.Game.Generators
 {
     public class TraceGenerator : MonoBehaviour
     {
-        private const int MIN_TRACE_LENGTH = 200;
+        private const int MIN_TRACE_LENGTH = 100;
         [SerializeField]
         private GameObject _Player;
 
@@ -64,7 +64,9 @@ namespace Runner.Game.Generators
         {
             foreach(var segment in _SegmentsInUse)
             {
-                if(_Player.transform.position.x > segment.transform.position.x + segment.SegmentLength)
+                if(_Player.transform.position.x > 
+                    segment.transform.position.x + segment.SegmentLength 
+                    + 5f)
                 {
                     segment.SetFree();
                 }

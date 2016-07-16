@@ -1,149 +1,348 @@
 Segments:
-  Segment1:
-    Length: 6
+  Empty1:
+    Length: 14
     Lines:
       Line1:
-        Obstacles:
-          Obstacle1:
-            Type: MovingObstacle
-            Position: 3
-            Direction: Back
-            Speed: 0.5
-            TriggerRange: 20
       Line2:
-        Obstacles:
-          Obstacle1:
-              Type: MovingObstacle
-              Position: 3
-              Direction: Right
-              Speed: 0.1
-              TriggerRange: 20
       Line3:
-        Obstacles:
-          Obstacle1:
-              Type: MovingObstacle
-              Position: 3
-              Direction: Left
-              Speed: 0.1
-              TriggerRange: 20
       Line4:
-        Obstacles:
-          Obstacle1:
-            Type: MovingObstacle
-            Position: 3
-            Direction: Back
-            Speed: 0.5
-            TriggerRange: 20
-  Segment2:
-    Length: 6
-    Lines:
-      Line1:
-        Obstacles:
-          Obstacle1:
-            Type: MovingObstacle
-            Position: 3
-            Direction: Right
-            Speed: 0.1
-            TriggerRange: 20
-      Line2:
-        Obstacles:
-          Obstacle1:
-              Type: MovingObstacle
-              Position: 3
-              Direction: Right
-              Speed: 0.1
-              TriggerRange: 20
-      Line3:
-        Obstacles:
-          Obstacle1:
-              Type: MovingObstacle
-              Position: 3
-              Direction: Left
-              Speed: 0.1
-              TriggerRange: 20
-      Line4:
-        Obstacles:
-          Obstacle1:
-            Type: MovingObstacle
-            Position: 3
-            Direction: Left
-            Speed: 0.1
-            TriggerRange: 20
-  Segment3:
+  Empty2:
     Length: 15
+    Lines:
+      Line1:
+      Line2:
+      Line3:
+      Line4:
+  Empty3:
+    Length: 16
+    Lines:
+      Line1:
+      Line2:
+      Line3:
+      Line4:
+  Empty4:
+    Length: 17
+    Lines:
+      Line1:
+      Line2:
+      Line3:
+      Line4:
+  Empty5:
+    Length: 18
+    Lines:
+      Line1:
+      Line2:
+      Line3:
+      Line4:
+  Empty6:
+    Length: 19
+    Lines:
+      Line1:
+      Line2:
+      Line3:
+      Line4:
+  Empty7:
+    Length: 20
+    Lines:
+      Line1:
+      Line2:
+      Line3:
+      Line4:
+  EasyStatic1:
+    Length: 30
     Lines:
       Line1:
         Obstacles:
           Obstacle1:
             Type: StaticObstacle
-            Position: 3
+            Position: 19
       Line2:
-        Obstacles:
-          Obstacle1:
-              Type: MovingObstacle
-              Position: 3
-              Direction: Right
-              Speed: 0.1
-              TriggerRange: 20
       Line3:
-        Obstacles:
-          Obstacle1:
-              Type: MovingObstacle
-              Position: 3
-              Direction: Left
-              Speed: 0.1
-              TriggerRange: 20
       Line4:
         Obstacles:
           Obstacle1:
             Type: StaticObstacle
-            Position: 3
-  Segment4:
-    Length: 15
+            Position: 19
+  EasyStatic2:
+    Length: 30
+    Lines:
+      Line1:
+      Line2:
+        Obstacles:
+          Obstacle1:
+            Type: StaticObstacle
+            Position: 19
+      Line3:
+      Line4:
+        Obstacles:
+          Obstacle1:
+            Type: StaticObstacle
+            Position: 19
+  EasyStatic3:
+    Length: 30
     Lines:
       Line1:
       Line2:
       Line3:
+        Obstacles:
+          Obstacle1:
+            Type: StaticObstacle
+            Position: 19
       Line4:
-  Segment5:
-    Length: 15
+        Obstacles:
+          Obstacle1:
+            Type: StaticObstacle
+            Position: 19
+  EasyStatic4:
+    Length: 30
+    Lines:
+      Line1:
+        Obstacles:
+          Obstacle1:
+            Type: StaticObstacle
+            Position: 19
+      Line2:
+        Obstacles:
+          Obstacle1:
+            Type: StaticObstacle
+            Position: 19
+      Line3: 
+      Line4:
+  EasyMoving1:
+    Length: 30
+    Lines:
+      Line1:
+        Obstacles:
+          Obstacle1:
+            Type: MovingObstacle
+            Position: 19
+            Direction: Back
+            Speed: 1
+            TriggerRange: 20
+      Line2:
+      Line3:
+      Line4:
+        Obstacles:
+          Obstacle1:
+            Type: MovingObstacle
+            Position: 19
+            Direction: Back
+            Speed: 1
+            TriggerRange: 20
+  EasyMoving2:
+    Length: 30
+    Lines:
+      Line1:
+      Line2:
+        Obstacles:
+          Obstacle1:
+            Type: MovingObstacle
+            Position: 19
+            Direction: Back
+            Speed: 1
+            TriggerRange: 20
+      Line3:
+      Line4:
+        Obstacles:
+          Obstacle1:
+            Type: MovingObstacle
+            Position: 18
+            Direction: Back
+            Speed: 1
+            TriggerRange: 20
+  EasyMoving3:
+    Length: 30
     Lines:
       Line1:
       Line2:
       Line3:
+        Obstacles:
+          Obstacle1:
+            Type: MovingObstacle
+            Position: 19
+            Direction: Back
+            Speed: 1
+            TriggerRange: 20
       Line4:
-  Segment6:
-    Length: 15
+        Obstacles:
+          Obstacle1:
+            Type: MovingObstacle
+            Position: 19
+            Direction: Back
+            Speed: 1
+            TriggerRange: 20
+  EasyMoving4:
+    Length: 30
     Lines:
       Line1:
+        Obstacles:
+          Obstacle1:
+            Type: MovingObstacle
+            Position: 19
+            Direction: Back
+            Speed: 1
+            TriggerRange: 20
+      Line2:
+        Obstacles:
+          Obstacle1:
+            Type: MovingObstacle
+            Position: 19
+            Direction: Back
+            Speed: 1
+            TriggerRange: 20
+      Line3: 
+      Line4:
+  EasyFloor1:
+    Length: 30
+    Lines:
+      Line1:
+        Obstacles:
+          Obstacle1:
+            Type: FloorObstacle
+            Position: 19
+            Speed: 0.2
+            TriggerRange: 20
       Line2:
       Line3:
       Line4:
-  Segment7:
-    Length: 15
+        Obstacles:
+          Obstacle1:
+            Type: FloorObstacle
+            Position: 19
+            Speed: 0.2
+            TriggerRange: 20
+  EasyFloor2:
+    Length: 30
     Lines:
       Line1:
+        Obstacles:
+          Obstacle1:
+            Type: FloorObstacle
+            Position: 19
+            Speed: 0.2
+            TriggerRange: 20
       Line2:
+        Obstacles:
+          Obstacle1:
+            Type: FloorObstacle
+            Position: 19
+            Speed: 0.2
+            TriggerRange: 20
       Line3:
       Line4:
-  Segment8:
-    Length: 15
+  EasyFloor3:
+    Length: 30
     Lines:
       Line1:
+      
+      Line2:
+        Obstacles:
+          Obstacle1:
+            Type: FloorObstacle
+            Position: 19
+            Speed: 0.2
+            TriggerRange: 20
+      Line3:
+        Obstacles:
+          Obstacle1:
+            Type: FloorObstacle
+            Position: 19
+            Speed: 0.2
+            TriggerRange: 20
+      Line4:
+  EasyFloor4:
+    Length: 30
+    Lines:
+      Line1: 
       Line2:
       Line3:
+        Obstacles:
+          Obstacle1:
+            Type: FloorObstacle
+            Position: 19
+            Speed: 0.2
+            TriggerRange: 20
       Line4:
-  Segment9:
-    Length: 15
+        Obstacles:
+          Obstacle1:
+            Type: FloorObstacle
+            Position: 19
+            Speed: 0.2
+            TriggerRange: 20       
+  Hard1:
+    Length: 45
     Lines:
       Line1:
+        Obstacles:
+          Obstacle1:
+            Type: FloorObstacle
+            Position: 13
+            Speed: 0.1
+            TriggerRange: 20
+          Obstacle2:
+              Type: FloorObstacle
+              Position: 14
+              Speed: 0.1
+              TriggerRange: 20
+          Obstacle3:
+              Type: FloorObstacle
+              Position: 15
+              Speed: 0.1
+              TriggerRange: 20
+          Obstacle4:
+              Type: FloorObstacle
+              Position: 16
+              Speed: 0.1
+              TriggerRange: 20
       Line2:
+        Obstacles:
+          Obstacle1:
+            Type: FloorObstacle
+            Position: 14
+            Speed: 0.1
+            TriggerRange: 20
+          Obstacle2:
+              Type: FloorObstacle
+              Position: 15
+              Speed: 0.1
+              TriggerRange: 20
+          Obstacle3:
+              Type: FloorObstacle
+              Position: 16
+              Speed: 0.1
+              TriggerRange: 20
+          Obstacle4:
+              Type: FloorObstacle
+              Position: 17
+              Speed: 0.1
+              TriggerRange: 20
       Line3:
+        Obstacles:
+          Obstacle1:
+            Type: FloorObstacle
+            Position: 15
+            Speed: 0.1
+            TriggerRange: 20
+          Obstacle2:
+              Type: FloorObstacle
+              Position: 16
+              Speed: 0.1
+              TriggerRange: 20
+          Obstacle3:
+              Type: FloorObstacle
+              Position: 17
+              Speed: 0.1
+              TriggerRange: 20
+          Obstacle4:
+              Type: FloorObstacle
+              Position: 18
+              Speed: 0.1
       Line4:
-  Segment10:
-    Length: 15
-    Lines:
-      Line1:
-      Line2:
-      Line3:
-      Line4:
+        Obstacles:
+          Obstacle1:
+              Type: MovingObstacle
+              Position: 44
+              Direction: Back
+              Speed: 1
+              TriggerRange: 20
+
