@@ -15,7 +15,7 @@ Segments:
           Obstacle1:
               Type: MovingObstacle
               Position: 3
-              Direction: Left
+              Direction: Right
               Speed: 0.1
               TriggerRange: 20
       Line3:
@@ -23,7 +23,7 @@ Segments:
           Obstacle1:
               Type: MovingObstacle
               Position: 3
-              Direction: Right
+              Direction: Left
               Speed: 0.1
               TriggerRange: 20
       Line4:
@@ -42,18 +42,10 @@ Segments:
           Obstacle1:
             Type: MovingObstacle
             Position: 3
-            Direction: Left
+            Direction: Right
             Speed: 0.1
             TriggerRange: 20
       Line2:
-        Obstacles:
-          Obstacle1:
-              Type: MovingObstacle
-              Position: 3
-              Direction: Left
-              Speed: 0.1
-              TriggerRange: 20
-      Line3:
         Obstacles:
           Obstacle1:
               Type: MovingObstacle
@@ -61,19 +53,97 @@ Segments:
               Direction: Right
               Speed: 0.1
               TriggerRange: 20
+      Line3:
+        Obstacles:
+          Obstacle1:
+              Type: MovingObstacle
+              Position: 3
+              Direction: Left
+              Speed: 0.1
+              TriggerRange: 20
       Line4:
         Obstacles:
           Obstacle1:
             Type: MovingObstacle
             Position: 3
-            Direction: Right
+            Direction: Left
             Speed: 0.1
             TriggerRange: 20
   Segment3:
     Length: 15
     Lines:
       Line1:
+        Obstacles:
+          Obstacle1:
+            Type: StaticObstacle
+            Position: 3
+      Line2:
+        Obstacles:
+          Obstacle1:
+              Type: MovingObstacle
+              Position: 3
+              Direction: Right
+              Speed: 0.1
+              TriggerRange: 20
+      Line3:
+        Obstacles:
+          Obstacle1:
+              Type: MovingObstacle
+              Position: 3
+              Direction: Left
+              Speed: 0.1
+              TriggerRange: 20
+      Line4:
+        Obstacles:
+          Obstacle1:
+            Type: StaticObstacle
+            Position: 3
+  Segment4:
+    Length: 15
+    Lines:
+      Line1:
       Line2:
       Line3:
       Line4:
-
+  Segment5:
+    Length: 15
+    Lines:
+      Line1:
+      Line2:
+      Line3:
+      Line4:
+  Segment6:
+    Length: 15
+    Lines:
+      Line1:
+      Line2:
+      Line3:
+      Line4:
+  Segment7:
+    Length: 15
+    Lines:
+      Line1:
+      Line2:
+      Line3:
+      Line4:
+  Segment8:
+    Length: 15
+    Lines:
+      Line1:
+      Line2:
+      Line3:
+      Line4:
+  Segment9:
+    Length: 15
+    Lines:
+      Line1:
+      Line2:
+      Line3:
+      Line4:
+  Segment10:
+    Length: 15
+    Lines:
+      Line1:
+      Line2:
+      Line3:
+      Line4:

@@ -1,7 +1,7 @@
 Balance:
   StartSegmentWidth: 4
   StartSegmentLength: 40
-  MaxSegmentsInARow: 8
+  MaxSegmentsInARow: 3
   StartSpeed: 1
   MaxSpeed: 20
   Acceleration: 1

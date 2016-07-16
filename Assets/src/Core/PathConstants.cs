@@ -10,5 +10,6 @@ namespace Runner.Core
         public const string CELL_PREFAB_PATH            = "Prefabs/Cell";
         public const string FLOOR_OBSTACLE_PREFAB_PATH  = "Prefabs/Obstacles/FloorObstacle";
         public const string MOVING_OBSTACLE_PREFAB_PATH = "Prefabs/Obstacles/MovingObstacle";
+        public const string STATIC_OBSTACLE_PRAFB_PATH  = "Prefabs/Obstacles/StaticObstacle";
     }
 }

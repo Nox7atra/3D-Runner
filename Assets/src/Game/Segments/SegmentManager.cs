@@ -101,6 +101,9 @@ namespace Runner.Game.Segments
                 {
                     switch (param.Value.ToString())
                     {
+                        case "StaticObstacle":
+                            obstacle = ParseStaticObstacle(obstacleMapping);
+                            break;
                         case "MovingObstacle":
                             obstacle = ParseMovingObstacle(obstacleMapping);
                             break;
@@ -115,6 +118,21 @@ namespace Runner.Game.Segments
                     line.Obstacles.Add(obstacle);
                 }
             }
+        }
+        private LineObstacle ParseStaticObstacle(YamlMappingNode obstacleData)
+        {
+            LineObstacle obstacle = new LineObstacle();
+            foreach (var data in obstacleData.Children)
+            {
+                switch (data.Key.ToString())
+                {
+                    case "Position":
+                        obstacle.PositionOnLine
+                            = System.Convert.ToInt32(data.Value.ToString());
+                        break;
+                }
+            }
+            return obstacle;
         }
         private MovingLineObstacle ParseMovingObstacle(YamlMappingNode obstacleData)
         {
