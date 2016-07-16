@@ -19,6 +19,7 @@ namespace Runner.Core
         }
         private GameMainController()
         {
+            GameIsPaused = true;
         }
         #endregion
         private bool _GameIsPaused;
@@ -41,7 +42,11 @@ namespace Runner.Core
                 _GameIsPaused = value;
             }
         }
-        public void GameOver()
+        public void StartGame()
+        {
+            GameIsPaused = false;
+        }
+        public void Restart()
         {
             SceneManager.LoadScene(0);
         }

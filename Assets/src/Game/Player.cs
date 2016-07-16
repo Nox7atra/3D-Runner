@@ -27,7 +27,15 @@ namespace Runner.Game
             _DeltaTime += Time.deltaTime;
             if(_DeltaTime > TIME_TO_ACCEL)
             {
-                _ForwardSpeed += BalanceManager.Instance.Acceleration;
+                if (_ForwardSpeed < BalanceManager.Instance.MaxSpeed)
+                {
+                    _ForwardSpeed += BalanceManager.Instance.Acceleration;
+                }
+                else
+                {
+                    _ForwardSpeed = BalanceManager.Instance.MaxSpeed;
+                }
+                _DeltaTime = 0;
             }
             _Body.Move((Vector3.right * _ForwardSpeed + Vector3.down * GRAVITY) * Time.deltaTime);
         }

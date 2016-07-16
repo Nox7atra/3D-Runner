@@ -6,12 +6,18 @@ namespace Runner.Game.Generators
 {
     public class TraceGenerator : MonoBehaviour
     {
+        private const int MIN_TRACE_LENGTH = 200;
+        [SerializeField]
+        private GameObject _Player;
+
         private List<SegmentGameObject> _SegmentsPool;
+        private List<SegmentGameObject> _SegmentsInUse;
         private int _LastSegmentPosition;
         public void Init()
         {
             _LastSegmentPosition = BalanceManager.Instance.StartSegmentLength;
             _SegmentsPool = new List<SegmentGameObject>();
+            _SegmentsInUse = new List<SegmentGameObject>();
             foreach (var segment in SegmentManager.Instance.Segments)
             {
                 for (int i = 0; i < BalanceManager.Instance.MaxSameSegmentsInARow; i++)
@@ -26,25 +32,46 @@ namespace Runner.Game.Generators
         void Start()
         {
             Init();
-            for(int i = 0; i < 3; i++)
-            {
-                AddSegment();
-            }
+            CheckTraceLength();
         }
 
-        void Update()
+        void FixedUpdate()
         {
-
+            FreedomToSegment();
+            CheckTraceLength();
         }
-        public void AddSegment()
+        private void AddSegment()
         {
             SegmentGameObject freeSegment = GetRandomFreeSegment();
             freeSegment.transform.position = Vector3.right * _LastSegmentPosition;
             _LastSegmentPosition += freeSegment.SegmentLength;
-            freeSegment.CurrentState = SegmentGameObject.State.InUse;
-
+            freeSegment.SetInUse();
+            _SegmentsInUse.Add(freeSegment);
         }
-        public SegmentGameObject GetRandomFreeSegment()
+        private void CheckTraceLength()
+        {
+            int traceLength = 0;
+            foreach(var segment in _SegmentsInUse)
+            {
+                traceLength += segment.SegmentLength;
+            }
+            if(traceLength < MIN_TRACE_LENGTH)
+            {
+                AddSegment();
+            }
+        }
+        private void FreedomToSegment()
+        {
+            foreach(var segment in _SegmentsInUse)
+            {
+                if(_Player.transform.position.x > segment.transform.position.x + segment.SegmentLength)
+                {
+                    segment.SetFree();
+                }
+            }
+            _SegmentsInUse.RemoveAll(x => x.CurrentState == SegmentGameObject.State.Free);
+        }
+        private SegmentGameObject GetRandomFreeSegment()
         {
             List<SegmentGameObject> freeSegments = _SegmentsPool.FindAll(x =>
                 x.CurrentState == SegmentGameObject.State.Free);

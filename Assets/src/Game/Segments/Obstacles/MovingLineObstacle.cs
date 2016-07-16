@@ -7,10 +7,29 @@ namespace Runner.Game.Segments.Obstacles
     public class MovingLineObstacle : TriggerableLineObstacle
     {
         private Vector3 _Direction;
-        public float Speed;
-        public override GameObject Create(Transform parentTransform,
+        private float _Speed;
+
+        public float Speed
+        {
+            get
+            {
+                return _Speed;
+            }
+            set
+            {
+                _Speed = value;
+            }
+        }
+        public override ObstacleObject Create(Transform parentTransform,
             Vector3 localPosition)
         {
+            GameObject cell = ObjectsBuilder.Instance
+                .CreateObject(
+                ObjectsBuilder.ObjectType.Cell);
+            cell.transform.SetParent(parentTransform.transform);
+            cell.transform.localPosition
+                = localPosition;
+
             GameObject obj;
             obj = ObjectsBuilder.Instance
                 .CreateObject(
@@ -19,7 +38,12 @@ namespace Runner.Game.Segments.Obstacles
             //Добавка на вектор ап, чтобы поднять над полом
             obj.transform.localPosition
                 = localPosition + Vector3.up;
-            return obj;
+
+            MovingLineObstacleObject movObj 
+                = obj.GetComponent<MovingLineObstacleObject>();
+            movObj.SetPropeties(_Speed, _Direction, _TriggerRange);
+            
+            return movObj;
         }
         public void SetDirection(string direction)
         {

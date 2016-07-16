@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using Runner.Core;
+using Runner.Game.Segments.Obstacles;
 namespace Runner.Game.Segments
 {
     public class SegmentGameObject : MonoBehaviour
@@ -20,11 +21,18 @@ namespace Runner.Game.Segments
                 return _SegmentLength;
             }
         }
-        [HideInInspector]
-        public State CurrentState;
+        private State _CurrentState;
+        public State CurrentState {
+            get
+            {
+                return _CurrentState;
+            }
+        }
+        private List<ObstacleObject> _ObstaclesPool;
         public SegmentGameObject()
         {
-            CurrentState = State.Free;
+            _CurrentState = State.Free;
+            _ObstaclesPool = new List<ObstacleObject>();
         }
         protected virtual void Start()
         {
@@ -36,25 +44,25 @@ namespace Runner.Game.Segments
 
         }
         protected static void CreateCell(
-            Transform parentTransform, 
+            SegmentGameObject segmentObj, 
             Vector3 localPosition)
         {
             GameObject cell = ObjectsBuilder.
                 Instance.CreateObject(
                     ObjectsBuilder.ObjectType.Cell);
-            cell.transform.SetParent(parentTransform.transform);
+            cell.transform.SetParent(segmentObj.transform.transform);
             cell.transform.localPosition
                 = localPosition;
         }
         protected static void CreateObstacle(
-            Transform parentTransform, 
+            SegmentGameObject segmentObj, 
             Vector3 localPosition, 
             LineObstacle obstacle)
         {
-             obstacle.Create(parentTransform, localPosition);      
+            segmentObj._ObstaclesPool.Add(obstacle.Create(segmentObj.transform, localPosition));      
         }
         protected static void CreateFloor(
-            Transform parentTransform, 
+            SegmentGameObject segmentObj, 
             int width, 
             int length)
         {
@@ -62,13 +70,13 @@ namespace Runner.Game.Segments
             {
                 for (int j = 0; j < width; j++)
                 {
-                    CreateCell(parentTransform, 
+                    CreateCell(segmentObj, 
                         Vector3.right * i + Vector3.forward * j);
                 }
             }
         }
         private static void CreateFloor(
-            Transform parentTransform, 
+            SegmentGameObject segmentObj, 
             List<Line> lines, 
             int length)
         {
@@ -82,21 +90,21 @@ namespace Runner.Game.Segments
                     if (obstacle != null)
                     {
                         CreateObstacle(
-                            parentTransform, 
+                            segmentObj, 
                             Vector3.right * i + Vector3.forward * j, 
                             obstacle);
                     }
                     else
                     {
                         CreateCell(
-                            parentTransform,
+                            segmentObj,
                             Vector3.right * i + Vector3.forward * j);
                     }
                 }
             }
         }
         protected static void CreateWalls(
-            Transform parentTransform, 
+            SegmentGameObject segmentObj, 
             int width, 
             int length)
         {
@@ -104,16 +112,23 @@ namespace Runner.Game.Segments
             {
                 for (int j = 0; j < WALL_HEIGHT; j++)
                 {
-                    //Create left wall cell
-                    CreateCell(parentTransform, 
+                    //Рандом, чтобы стены не были идеально гладкими и отличались
+                    if (Random.Range(0, 6) < 4)
+                    {
+                        //Create left wall cell
+                        CreateCell(segmentObj,
+                            Vector3.right * i
+                            + Vector3.up * j
+                            - Vector3.forward);
+                    }
+                    if (Random.Range(0, 6) < 4)
+                    {
+                        //Create right wall cell
+                        CreateCell(segmentObj,
                         Vector3.right * i
-                        + Vector3.up * j 
-                        - Vector3.forward);
-                    //Create right wall cell
-                    CreateCell(parentTransform,
-                        Vector3.right * i 
-                        + Vector3.up * j 
+                        + Vector3.up * j
                         + Vector3.forward * width);
+                    }
                 }
             }
         }
@@ -124,9 +139,21 @@ namespace Runner.Game.Segments
             SegmentGameObject segmentObj
                 = gameobj.AddComponent<SegmentGameObject>();
             segmentObj._SegmentLength = segment.Length;
-            CreateFloor(segmentObj.transform, segment.Lines, segment.Length);
-            CreateWalls(segmentObj.transform, segment.Lines.Count, segment.Length);
+            CreateFloor(segmentObj, segment.Lines, segment.Length);
+            CreateWalls(segmentObj, segment.Lines.Count, segment.Length);
             return segmentObj;
+        }
+        public void SetInUse()
+        {
+            _CurrentState = State.InUse;
+        }
+        public void SetFree()
+        {
+            _CurrentState = State.Free;
+            foreach(ObstacleObject obstacle in _ObstaclesPool)
+            {
+                obstacle.Reset();
+            }
         }
     }
 }

@@ -7,10 +7,10 @@ namespace Runner.Game.Segments
     {
         protected override void Start()
         {
-            CreateFloor(transform, 
+            CreateFloor(this, 
                 BalanceManager.Instance.StartSegmentWidth,
                 BalanceManager.Instance.StartSegmentLength);
-            CreateWalls(transform,
+            CreateWalls(this,
                 BalanceManager.Instance.StartSegmentWidth,
                 BalanceManager.Instance.StartSegmentLength);
         }

@@ -8,11 +8,9 @@ namespace Runner.Game.Segments.Obstacles
         private float _Speed;
         private Vector3 _Direction;
 
-        public bool IsActivated;
-        
         void Update()
         {
-            if(!GameMainController.Instance.GameIsPaused && IsActivated)
+            if(!GameMainController.Instance.GameIsPaused && _IsActivated)
             {
                 Move();
             }
@@ -20,6 +18,12 @@ namespace Runner.Game.Segments.Obstacles
         private void Move()
         {
             transform.position += _Direction * _Speed;
+        }
+        public void SetPropeties(float speed, Vector3 direction, int triggerRange)
+        {
+            _Speed = speed;
+            _Direction = direction;
+            _Trigger.transform.localPosition = Vector3.left * triggerRange;
         }
     }
 }
