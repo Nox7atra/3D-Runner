@@ -11,13 +11,6 @@ namespace Runner.Game.Segments
         public virtual ObstacleObject Create(Transform parentTransform,
             Vector3 localPosition)
         {
-            GameObject cell = ObjectsBuilder.Instance
-               .CreateObject(
-               ObjectsBuilder.ObjectType.Cell);
-            cell.transform.SetParent(parentTransform.transform);
-            cell.transform.localPosition
-                = localPosition;
-
             GameObject obj;
             obj = ObjectsBuilder.Instance
                 .CreateObject(

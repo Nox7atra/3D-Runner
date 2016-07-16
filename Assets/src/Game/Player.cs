@@ -10,7 +10,8 @@ namespace Runner.Game
         private const float SIDE_SPEED = 5f;
         [SerializeField]
         private CharacterController _Body;
-
+        [SerializeField]
+        private GameObject _CorridorGraph;
         private Vector3 _StartPosition;
         private float _ForwardSpeed;
         private float _SideSpeed;
@@ -43,6 +44,10 @@ namespace Runner.Game
             }
             _Body.Move((Vector3.right * _ForwardSpeed
                 + Vector3.forward * _SideSpeed) * Time.deltaTime);
+            _CorridorGraph.transform.position
+                = Vector3.right * transform.position.x
+                + Vector3.up * _CorridorGraph.transform.position.y
+                + Vector3.forward * _CorridorGraph.transform.position.z;
         }
         private void Controls()
         {
