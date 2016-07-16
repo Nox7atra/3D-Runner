@@ -18,7 +18,6 @@ namespace Runner.Game
             _StartPosition = transform.position;
             _DeltaTime = 0;
         }
-
         void Update()
         {
             if (GameMainController.Instance.GameIsPaused)

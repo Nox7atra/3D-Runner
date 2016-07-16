@@ -5,19 +5,35 @@ Segments:
       Line1:
         Obstacles:
           Obstacle1:
-            Type:
-            Position:
+            Type: MovingObstacle
+            Position: 3
       Line2:
+        Obstacles:
+          Obstacle1:
+            Type: MovingObstacle
+            Position: 3
       Line3:
       Line4:
-Segment2:
+  Segment2:
     Length: 6
     Lines:
       Line1:
         Obstacles:
           Obstacle1:
-            Type:
-            Position:
+            Type: MovingObstacle
+            Position: 4
       Line2:
+        Obstacles:
+          Obstacle1:
+            Type: MovingObstacle
+            Position: 3
       Line3:
+        Obstacles:
+          Obstacle1:
+            Type: MovingObstacle
+            Position: 3
       Line4:
+        Obstacles:
+          Obstacle1:
+            Type: MovingObstacle
+            Position: 2

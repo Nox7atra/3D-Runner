@@ -24,12 +24,21 @@ namespace Runner.Core
         #endregion
         public enum ObjectType
         {
-            Cell
+            Cell,
+            MovingObstacle,
+            FloorObstacle
         }
         private GameObject _CellPrefab;
+        private GameObject _MovingObstaclePrefab;
+        private GameObject _FloorObstaclePrefab;
         private void Init()
         {
-            _CellPrefab = Resources.Load(PathConstants.CELL_PREFAB_PATH) as GameObject;
+            _CellPrefab = Resources.Load(
+                PathConstants.CELL_PREFAB_PATH) as GameObject;
+            _FloorObstaclePrefab = Resources.Load(
+                PathConstants.FLOOR_OBSTACLE_PREFAB_PATH) as GameObject;
+            _MovingObstaclePrefab = Resources.Load(
+                PathConstants.MOVING_OBSTACLE_PREFAB_PATH) as GameObject;
         }
 
         public GameObject CreateObject(ObjectType type)
@@ -38,6 +47,10 @@ namespace Runner.Core
             {
                 case ObjectType.Cell:
                     return GameObject.Instantiate(_CellPrefab);
+                case ObjectType.FloorObstacle:
+                    return GameObject.Instantiate(_FloorObstaclePrefab);
+                case ObjectType.MovingObstacle:
+                    return GameObject.Instantiate(_MovingObstaclePrefab);
             }
             return null;
         }

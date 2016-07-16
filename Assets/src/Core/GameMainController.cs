@@ -41,5 +41,9 @@ namespace Runner.Core
                 _GameIsPaused = value;
             }
         }
+        public void GameOver()
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }
