@@ -5,8 +5,7 @@ namespace Runner.Game
 {
     public class Player : MonoBehaviour
     {
-        private const float TIME_TO_ACCEL = 0.5f;
-        private const float GRAVITY = 20f;
+        private const float TIME_TO_ACCEL = 1f;
         private const float SIDE_SPEED = 5f;
         [SerializeField]
         private CharacterController _Body;

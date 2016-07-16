@@ -94,14 +94,6 @@ namespace Runner.Core
             {
                 switch (param.Key.ToString())
                 {
-                    case "StartSegmentWidth":
-                        _StartSegmentWidth 
-                            = Convert.ToInt32(param.Value.ToString());
-                        break;
-                    case "StartSegmentLength":
-                        _StartSegmentLength
-                            = Convert.ToInt32(param.Value.ToString());
-                        break;
                     case "MaxSegmentsInARow":
                         _MaxSameSegmentsInARow 
                             = Convert.ToInt32(param.Value.ToString());

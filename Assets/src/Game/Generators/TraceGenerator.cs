@@ -40,13 +40,14 @@ namespace Runner.Game.Generators
             FreedomToSegment();
             CheckTraceLength();
         }
-        private void AddSegment()
+        private int AddSegment()
         {
             SegmentGameObject freeSegment = GetRandomFreeSegment();
             freeSegment.transform.position = Vector3.right * _LastSegmentPosition;
             _LastSegmentPosition += freeSegment.SegmentLength;
             freeSegment.SetInUse();
             _SegmentsInUse.Add(freeSegment);
+            return freeSegment.SegmentLength;
         }
         private void CheckTraceLength()
         {
@@ -55,9 +56,9 @@ namespace Runner.Game.Generators
             {
                 traceLength += segment.SegmentLength;
             }
-            if(traceLength < MIN_TRACE_LENGTH)
+            while(traceLength < MIN_TRACE_LENGTH)
             {
-                AddSegment();
+                traceLength += AddSegment();
             }
         }
         private void FreedomToSegment()
