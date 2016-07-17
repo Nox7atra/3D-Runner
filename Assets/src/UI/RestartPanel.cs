@@ -13,11 +13,15 @@ namespace Runner.UI
         private Text _BestScore;
         public void Show()
         {
+            ModulesContoller.Instance.Modules
+                .GetModule<HUD>().gameObject.SetActive(false);
             GameMainController.Instance.GameIsPaused = true;
             _CurrentScore.text 
-                = "Current Score: " + UserData.Instance.CurrentScore.ToString();
+                = "Current Score: " 
+                + UserData.Instance.CurrentScore.ToString();
             _BestScore.text
-                = "Best Score: " + UserData.Instance.BestScore.ToString();
+                = "Best Score: " 
+                + UserData.Instance.BestScore.ToString();
             gameObject.SetActive(true);
         }
         public void OnRestartButton()

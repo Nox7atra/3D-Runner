@@ -21,7 +21,6 @@ namespace Runner.Game
             _ForwardSpeed = BalanceManager.Instance.StartForwardSpeed;
             _SideSpeed = 0;
             _DeltaTime = 0;
-            
         }
         void Update()
         {
@@ -29,8 +28,7 @@ namespace Runner.Game
             {
                 return;
             }
-            
-            Controls();
+            Controls.SideSpeedControl(ref _SideSpeed);
             UserData.Instance.SetCurrentScore(
                 transform.position.x - _StartPosition.x);
             //Ускорение в течением времени
@@ -56,26 +54,6 @@ namespace Runner.Game
                 + Vector3.up * _CorridorGraph.transform.position.y
                 + Vector3.forward * _CorridorGraph.transform.position.z;
         }
-        private void Controls()
-        {
-#if UNITY_EDITOR
-            if (Input.GetKeyUp(KeyCode.LeftArrow) 
-                || Input.GetKeyUp(KeyCode.A)
-                || Input.GetKeyUp(KeyCode.RightArrow)
-                || Input.GetKeyUp(KeyCode.D))
-            {
-                _SideSpeed = 0;
-            }
-            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-            {
-                _SideSpeed = BalanceManager.Instance.SideSpeed;
-            }
-            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-            {
-                _SideSpeed = -BalanceManager.Instance.SideSpeed;
-            }
-            
-#endif
-        }
+       
     }
 }

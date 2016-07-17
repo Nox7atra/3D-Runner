@@ -78,7 +78,7 @@ namespace Runner.Core.User {
                 if (!Directory.Exists(_UserDataPath))
                 {
                     Directory.CreateDirectory(_UserDataPathWithoutFilename);
-                    File.Create(_UserDataPath);
+                    File.Create(_UserDataPath).Close();
                 }
 
             }

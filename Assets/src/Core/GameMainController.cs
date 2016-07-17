@@ -45,6 +45,7 @@ namespace Runner.Core
         public void StartGame()
         {
             GameIsPaused = false;
+            Controls.InitGyro();
         }
         public void GameOver()
         {
