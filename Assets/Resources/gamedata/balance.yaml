@@ -3,5 +3,5 @@ Balance:
   MaxSegmentsInARow: 3
   StartForwardSpeed: 10
   SideSpeed: 6
-  MaxForwardSpeed: 50
+  MaxForwardSpeed: 40
   Acceleration: 1
