@@ -269,6 +269,71 @@ Segments:
             Position: 19
             Speed: 0.2
             TriggerRange: 20       
+  TrickMoving1:
+    Length: 60
+    Lines:
+      Line1:
+        Obstacles:
+          Obstacle1:
+            Type: StaticObstacle
+            Position: 19
+          Obstacle2:
+            Type: StaticObstacle
+            Position: 20
+          Obstacle3:
+            Type: StaticObstacle
+            Position: 21
+      Line2:
+        Obstacles:
+          Obstacle1:
+            Type: MovingObstacle
+            Position: 19
+            Direction: Right
+            Speed: 0.1
+            TriggerRange: 20
+          Obstacle2:
+            Type: MovingObstacle
+            Position: 20
+            Direction: Right
+            Speed: 0.1
+            TriggerRange: 15
+          Obstacle3:
+            Type: MovingObstacle
+            Position: 21
+            Direction: Right
+            Speed: 0.1
+            TriggerRange: 15
+      Line3:
+        Obstacles:
+          Obstacle1:
+            Type: MovingObstacle
+            Position: 19
+            Direction: Left
+            Speed: 0.1
+            TriggerRange: 20
+          Obstacle2:
+            Type: MovingObstacle
+            Position: 20
+            Direction: Left
+            Speed: 0.1
+            TriggerRange: 15
+          Obstacle3:
+            Type: MovingObstacle
+            Position: 21
+            Direction: Left
+            Speed: 0.1
+            TriggerRange: 15
+      Line4:
+        Obstacles:
+          Obstacle1:
+            Type: StaticObstacle
+            Position: 19
+          Obstacle2:
+            Type: StaticObstacle
+            Position: 20
+          Obstacle3:
+            Type: StaticObstacle
+            Position: 21
   Hard1:
     Length: 45
     Lines:
@@ -280,20 +345,20 @@ Segments:
             Speed: 0.1
             TriggerRange: 20
           Obstacle2:
-              Type: FloorObstacle
-              Position: 14
-              Speed: 0.1
-              TriggerRange: 20
+            Type: FloorObstacle
+            Position: 14
+            Speed: 0.1
+            TriggerRange: 20
           Obstacle3:
-              Type: FloorObstacle
-              Position: 15
-              Speed: 0.1
-              TriggerRange: 20
+            Type: FloorObstacle
+            Position: 15
+            Speed: 0.1
+            TriggerRange: 20
           Obstacle4:
-              Type: FloorObstacle
-              Position: 16
-              Speed: 0.1
-              TriggerRange: 20
+            Type: FloorObstacle
+            Position: 16
+            Speed: 0.1
+            TriggerRange: 20
       Line2:
         Obstacles:
           Obstacle1:
@@ -302,20 +367,20 @@ Segments:
             Speed: 0.1
             TriggerRange: 20
           Obstacle2:
-              Type: FloorObstacle
-              Position: 15
-              Speed: 0.1
-              TriggerRange: 20
+            Type: FloorObstacle
+            Position: 15
+            Speed: 0.1
+            TriggerRange: 20
           Obstacle3:
-              Type: FloorObstacle
-              Position: 16
-              Speed: 0.1
-              TriggerRange: 20
+            Type: FloorObstacle
+            Position: 16
+            Speed: 0.1
+            TriggerRange: 20
           Obstacle4:
-              Type: FloorObstacle
-              Position: 17
-              Speed: 0.1
-              TriggerRange: 20
+            Type: FloorObstacle
+            Position: 17
+            Speed: 0.1
+            TriggerRange: 20
       Line3:
         Obstacles:
           Obstacle1:
@@ -324,25 +389,167 @@ Segments:
             Speed: 0.1
             TriggerRange: 20
           Obstacle2:
-              Type: FloorObstacle
-              Position: 16
-              Speed: 0.1
-              TriggerRange: 20
+            Type: FloorObstacle
+            Position: 16
+            Speed: 0.1
+            TriggerRange: 20
           Obstacle3:
-              Type: FloorObstacle
-              Position: 17
-              Speed: 0.1
-              TriggerRange: 20
+            Type: FloorObstacle
+            Position: 17
+            Speed: 0.1
+            TriggerRange: 20
           Obstacle4:
-              Type: FloorObstacle
-              Position: 18
-              Speed: 0.1
+            Type: FloorObstacle
+            Position: 18
+            Speed: 0.1
+            TriggerRange: 20
       Line4:
         Obstacles:
           Obstacle1:
-              Type: MovingObstacle
-              Position: 44
-              Direction: Back
-              Speed: 1
-              TriggerRange: 20
-
+            Type: MovingObstacle
+            Position: 44
+            Direction: Back
+            Speed: 1
+            TriggerRange: 20
+  Hard2:
+    Length: 100
+    Lines:
+      Line1:
+        Obstacles:
+          Obstacle1:
+            Type: FloorObstacle
+            Position: 25
+            Speed: 0.1
+            TriggerRange: 20
+          Obstacle2:
+            Type: FloorObstacle
+            Position: 26
+            Speed: 0.1
+            TriggerRange: 20
+          Obstacle3:
+            Type: FloorObstacle
+            Position: 75
+            Speed: 0.1
+            TriggerRange: 20
+          Obstacle4:
+            Type: FloorObstacle
+            Position: 76
+            Speed: 0.1
+            TriggerRange: 20
+      Line2:
+        Obstacles:
+          Obstacle1:
+            Type: FloorObstacle
+            Position: 25
+            Speed: 0.1
+            TriggerRange: 20
+          Obstacle2:
+            Type: FloorObstacle
+            Position: 26
+            Speed: 0.1
+            TriggerRange: 20
+          Obstacle3:
+            Type: FloorObstacle
+            Position: 75
+            Speed: 0.1
+            TriggerRange: 20
+          Obstacle4:
+            Type: FloorObstacle
+            Position: 76
+            Speed: 0.1
+            TriggerRange: 20
+      Line3:
+        Obstacles:
+          Obstacle1:
+            Type: FloorObstacle
+            Position: 50
+            Speed: 0.1
+            TriggerRange: 20
+          Obstacle2:
+            Type: FloorObstacle
+            Position: 51
+            Speed: 0.1
+            TriggerRange: 20
+      Line4:
+        Obstacles:
+          Obstacle1:
+            Type: FloorObstacle
+            Position: 50
+            Speed: 0.1
+            TriggerRange: 20
+          Obstacle2:
+            Type: FloorObstacle
+            Position: 51
+            Speed: 0.1
+            TriggerRange: 20
+  Hard3:
+    Length: 100
+    Lines:
+      Line1:
+        Obstacles:
+          Obstacle1:
+            Type: FloorObstacle
+            Position: 25
+            Speed: 0.1
+            TriggerRange: 20
+          Obstacle2:
+            Type: FloorObstacle
+            Position: 26
+            Speed: 0.1
+            TriggerRange: 20
+          Obstacle3:
+            Type: FloorObstacle
+            Position: 75
+            Speed: 0.1
+            TriggerRange: 20
+          Obstacle4:
+            Type: FloorObstacle
+            Position: 76
+            Speed: 0.1
+            TriggerRange: 20
+      Line2:
+        Obstacles:
+          Obstacle1:
+            Type: FloorObstacle
+            Position: 50
+            Speed: 0.1
+            TriggerRange: 20
+          Obstacle2:
+            Type: FloorObstacle
+            Position: 51
+            Speed: 0.1
+            TriggerRange: 20
+          Obstacle3:
+            Type: FloorObstacle
+            Position: 75
+            Speed: 0.1
+            TriggerRange: 20
+          Obstacle4:
+            Type: FloorObstacle
+            Position: 76
+            Speed: 0.1
+            TriggerRange: 20
+      Line3:
+        Obstacles:
+          Obstacle1:
+            Type: FloorObstacle
+            Position: 25
+            Speed: 0.1
+            TriggerRange: 20
+          Obstacle2:
+            Type: FloorObstacle
+            Position: 26
+            Speed: 0.1
+            TriggerRange: 20      
+      Line4:
+        Obstacles:
+          Obstacle1:
+            Type: FloorObstacle
+            Position: 50
+            Speed: 0.1
+            TriggerRange: 20
+          Obstacle2:
+            Type: FloorObstacle
+            Position: 51
+            Speed: 0.1
+            TriggerRange: 20

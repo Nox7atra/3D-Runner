@@ -6,7 +6,7 @@ namespace Runner.Game.Generators
 {
     public class TraceGenerator : MonoBehaviour
     {
-        private const int MIN_TRACE_LENGTH = 100;
+        private const int MIN_TRACE_LENGTH = 200;
         [SerializeField]
         private GameObject _Player;
 

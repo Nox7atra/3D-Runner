@@ -46,6 +46,10 @@ namespace Runner.Core
         {
             GameIsPaused = false;
         }
+        public void GameOver()
+        {
+            User.UserData.Instance.ApplyBestScore();
+        }
         public void Restart()
         {
             SceneManager.LoadScene(0);

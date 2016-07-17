@@ -68,6 +68,7 @@ namespace Runner.Game.Segments
                 }
                 _Segments.Add(segment);
             }
+            reader.Close();
         }
         private void ParseLines(YamlMappingNode lines, ref Segment segment)
         {

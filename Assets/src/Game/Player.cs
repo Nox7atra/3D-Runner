@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Runner.Core;
+using Runner.Core.User;
 namespace Runner.Game
 {
     public class Player : MonoBehaviour
     {
         private const float TIME_TO_ACCEL = 1f;
-        private const float SIDE_SPEED = 5f;
         [SerializeField]
         private CharacterController _Body;
         [SerializeField]
@@ -18,8 +18,10 @@ namespace Runner.Game
         void Start()
         {
             _StartPosition = transform.position;
-            _DeltaTime = 0;
+            _ForwardSpeed = BalanceManager.Instance.StartForwardSpeed;
             _SideSpeed = 0;
+            _DeltaTime = 0;
+            
         }
         void Update()
         {
@@ -27,22 +29,28 @@ namespace Runner.Game
             {
                 return;
             }
+            
             Controls();
+            UserData.Instance.SetCurrentScore(
+                transform.position.x - _StartPosition.x);
+            //Ускорение в течением времени
             _DeltaTime += Time.deltaTime;
             if(_DeltaTime > TIME_TO_ACCEL)
             {
-                if (_ForwardSpeed < BalanceManager.Instance.MaxSpeed)
+                if (_ForwardSpeed < BalanceManager.Instance.MaxForwardSpeed)
                 {
                     _ForwardSpeed += BalanceManager.Instance.Acceleration;
                 }
                 else
                 {
-                    _ForwardSpeed = BalanceManager.Instance.MaxSpeed;
+                    _ForwardSpeed = BalanceManager.Instance.MaxForwardSpeed;
                 }
                 _DeltaTime = 0;
             }
+            //Передвижение
             _Body.Move((Vector3.right * _ForwardSpeed
                 + Vector3.forward * _SideSpeed) * Time.deltaTime);
+            //Двигаем коридорную графику за персонажем
             _CorridorGraph.transform.position
                 = Vector3.right * transform.position.x
                 + Vector3.up * _CorridorGraph.transform.position.y
@@ -60,11 +68,11 @@ namespace Runner.Game
             }
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             {
-                _SideSpeed = SIDE_SPEED;
+                _SideSpeed = BalanceManager.Instance.SideSpeed;
             }
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             {
-                _SideSpeed = -SIDE_SPEED;
+                _SideSpeed = -BalanceManager.Instance.SideSpeed;
             }
             
 #endif

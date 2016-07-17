@@ -26,10 +26,10 @@ namespace Runner.Core
         #endregion
         #region private properties
         private int _MaxSameSegmentsInARow;
-        private int _StartSegmentWidth;
         private int _StartSegmentLength;
-        private float _StartSpeed;
-        private float _MaxSpeed;
+        private float _StartForwardSpeed;
+        private float _SideSpeed;
+        private float _MaxForwardSpeed;
         private float _Acceleration;
         #endregion
         #region public properties
@@ -40,13 +40,6 @@ namespace Runner.Core
                 return _MaxSameSegmentsInARow;
             }
         }
-        public int StartSegmentWidth
-        {
-            get
-            {
-                return _StartSegmentWidth;
-            }
-        }
         public int StartSegmentLength
         {
             get
@@ -54,18 +47,25 @@ namespace Runner.Core
                 return _StartSegmentLength;
             }
         }
-        public float StartSpeed
+        public float StartForwardSpeed
         {
             get
             {
-                return _StartSpeed;
+                return _StartForwardSpeed;
             }
         }
-        public float MaxSpeed
+        public float SideSpeed
         {
             get
             {
-                return _MaxSpeed;
+                return _SideSpeed;
+            }
+        }
+        public float MaxForwardSpeed
+        {
+            get
+            {
+                return _MaxForwardSpeed;
             }
         }
         public float Acceleration
@@ -94,21 +94,29 @@ namespace Runner.Core
             {
                 switch (param.Key.ToString())
                 {
+                    case "StartSegmentLength":
+                        _StartSegmentLength
+                            = Convert.ToInt32(param.Value.ToString());
+                        break;
                     case "MaxSegmentsInARow":
                         _MaxSameSegmentsInARow 
                             = Convert.ToInt32(param.Value.ToString());
                         break;
-                    case "StartSpeed":
-                        _StartSpeed = float.Parse(param.Value.ToString());
+                    case "StartForwardSpeed":
+                        _StartForwardSpeed = float.Parse(param.Value.ToString());
                         break;
-                    case "MaxSpeed":
-                        _MaxSpeed = float.Parse(param.Value.ToString());
+                    case "SideSpeed":
+                        _SideSpeed = float.Parse(param.Value.ToString());
+                        break;
+                    case "MaxForwardSpeed":
+                        _MaxForwardSpeed = float.Parse(param.Value.ToString());
                         break;
                     case "Acceleration":
                         _Acceleration = float.Parse(param.Value.ToString());
                         break;
                 }
             }
+            reader.Close();
         }
     }
 }

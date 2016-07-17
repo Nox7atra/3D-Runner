@@ -6,6 +6,8 @@ namespace Runner.Core
     {
         public const string SEGMENTS_DATA_PATH          = "gamedata/segments_data";
         public const string BALANCE_PATH                = "gamedata/balance";
+        public const string USER_DEFAULT                = "gamedata/user_default";
+        public const string USER_DIRECTORY_PATH                   = "gamedata/";
 
         public const string CELL_PREFAB_PATH            = "Prefabs/Cell";
         public const string FLOOR_OBSTACLE_PREFAB_PATH  = "Prefabs/Obstacles/FloorObstacle";

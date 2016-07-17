@@ -7,6 +7,9 @@ namespace Runner.UI
     {
         public void OnStartButton()
         {
+            ModulesContoller.Instance
+                .Modules.GetModule<HUD>()
+                .gameObject.SetActive(true);
             GameMainController.Instance.StartGame();
             gameObject.SetActive(false);
         }

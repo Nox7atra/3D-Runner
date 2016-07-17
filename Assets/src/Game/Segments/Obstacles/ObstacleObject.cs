@@ -29,6 +29,7 @@ namespace Runner.Game.Segments.Obstacles
         {
             if (collision.gameObject.CompareTag("Player"))
             {
+                GameMainController.Instance.GameOver();
                 ModulesContoller.Instance.
                     Modules.GetModule<RestartPanel>().Show();
             }
